@@ -14,6 +14,7 @@ import {
 
 
 export const GET_ALL_BOOKS = "GET_ALL_BOOKS";
+export const SET_TOTAL_BOOKS = "SET_TOTAL_BOOKS";
 export const GET_NAME_BOOKS = "GET_NAME_BOOKS";
 export const GET_BOOKS_ID = "GET_BOOKS_ID";
 export const DELETE_BOOKS_DETAIL = "DELETE_BOOKS_DETAIL";
@@ -70,6 +71,10 @@ export function getAllBooks(pagina = 0, items = 10) {
         dispatch({
           type: GET_ALL_BOOKS,
           payload: response.data.rows,
+        });
+        dispatch({
+          type: SET_TOTAL_BOOKS,
+          payload: response.data.pagination?.total || response.data.rows.length,
         });
       })
       .catch((error) => {

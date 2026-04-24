@@ -1,173 +1,215 @@
+/* ============================================
+   HOME - Modern Responsive Design
+   ============================================ */
 
-body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+:root {
+  --primary-color: #01A86C;
+  --primary-dark: #018f56;
+  --primary-light: #e8f5f0;
+  --secondary-color: #2D3748;
+  --text-muted: #718096;
+  --bg-light: #F7FAFC;
+  --bg-card: #FFFFFF;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --transition: all 0.3s ease;
 }
 
-.home{
-    display: flex;
-    flex-direction: column; 
-    height: 100%;
-    background-color: var(--bg);
+* {
+  box-sizing: border-box;
 }
 
-.banner{
-    width: 90%;
-    height: 8%;
-    margin-left: 9rem;
-    margin-top: 3rem;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.ordenamientos{
-    background-color: #F2F1EF;
-    width: 30%;
-    height: 3rem;
-    margin-left: 34rem;
-    margin-top: 5rem;
+.home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
 }
 
-.paginado{
-    /* width: 15%; */
-    /* height: 3rem; */
-    /* margin-left: 70rem; */
-    margin-top: 2rem;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    /* background-color: blanchedalmond; */
+/* ============================================
+   BANNER SECTION
+   ============================================ */
+.banner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 1.5rem auto;
+  padding: 0 1.5rem;
 }
 
-.cuerpo{
-    width: 85%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
-    margin-left: 5rem;
+.banner img {
+  width: 100%;
+  height: auto;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
 }
 
-
-.filtro{
-    background-color: #F2F1EF;
-    width: 15%;
-    height: 45rem;
+.banner img:hover {
+  transform: scale(1.01);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
-.cards{
-    width: 75%;
-    display: flex;
-    flex-wrap: wrap ;
-    justify-content: space-around;
-    gap: 1.5rem
-}
-
-
-
-
-
-
-/* ERROR SEARCH */
-.ErrorSearch{
-  margin-top: 6rem;
-  margin-left: 13rem;
+/* ============================================
+   TOOLBAR SECTION
+   ============================================ */
+.paginado {
+  max-width: 1200px;
+  margin: 0 auto 1.5rem;
+  padding: 1rem 1.5rem;
   display: flex;
-  width: 70%;
-  height: 18rem;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
+  gap: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
 }
 
-.errorH3{
-    text-align: center;
-    font-weight: 600;
-    font-size: 30px;
-    color: #01A86C;
+.paginas {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-
-.fondoFiltro{
-    background-color: var(--bg) !important; 
+/* ============================================
+   MAIN CONTENT AREA
+   ============================================ */
+.cuerpo {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
 }
 
+/* ============================================
+   BOOKS GRID
+   ============================================ */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
 
-@media screen and (max-width: 844px){
+/* ============================================
+   ERROR STATE
+   ============================================ */
+.ErrorSearch {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  margin: 2rem auto;
+  max-width: 600px;
+}
 
-    .home{
-        width: 100%;
-        display: flex;
-        flex-direction: column; 
-        height: 100%;
-        background-color: var(--bg);
-    }
-    
-    .banner{
-        display: none;
-    }
-    
-    /* .ordenamientos{
-        background-color: #F2F1EF;
-        width: 30%;
-        height: 3rem;
-        margin-left: 34rem;
-        margin-top: 5rem;
-    } */
-    
-    .paginado{
-        height: 15rem;
-        margin-top: 0rem;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
-    }
-    
-    .paginas{
-        display: flex;
-        order: -1;
-        margin-bottom: 1rem;
-    }
+.errorH3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
 
-    
-    .cuerpo{
-        width: 90%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-        margin-left: 1.5rem;
-    }
-    
+/* ============================================
+   FILTER DRAWER
+   ============================================ */
+.fondoFiltro {
+  background-color: var(--bg-card) !important;
+}
 
-    
-    .cards{
-        width: 75%;
-        display: flex;
-        flex-wrap: wrap ;
-        justify-content: space-around;
-        gap: 2rem;
-    }
-    
-       
-    
-    /* ERROR SEARCH */
-    .ErrorSearch{
-      margin-top: 6rem;
-      margin-left: 1.5rem;
-      display: flex;
-      width: 90%;
-      height: 18rem;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .errorH3{
-        text-align: center;
-        font-weight: 600;
-        font-size: 30px;
-        color: #01A86C;
-    }
-    
-    
-        
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Tablet: 768px - 1024px */
+@media (max-width: 1024px) {
+  .banner img {
+    max-height: 220px;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* Mobile Large: 480px - 768px */
+@media (max-width: 768px) {
+  .banner {
+    margin: 1rem auto;
+    padding: 0 1rem;
+  }
+  
+  .banner img {
+    max-height: 180px;
+    border-radius: var(--radius-md);
+  }
+  
+  .paginado {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .paginas {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .cuerpo {
+    padding: 0 1rem 2rem;
+  }
+  
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Mobile Small: < 480px */
+@media (max-width: 480px) {
+  .banner img {
+    max-height: 140px;
+    border-radius: var(--radius-sm);
+  }
+  
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  
+  .ErrorSearch {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+  
+  .errorH3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* Extra Small: < 360px */
+@media (max-width: 360px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }

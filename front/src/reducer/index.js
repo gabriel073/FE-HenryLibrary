@@ -1,5 +1,6 @@
 import {
     GET_ALL_BOOKS,
+    SET_TOTAL_BOOKS,
     GET_NAME_BOOKS,
     GET_BOOKS_ID,
     DELETE_BOOKS_DETAIL,
@@ -71,6 +72,7 @@ import {
 
 const initialState = {
     allBooks: [],
+    totalBooks: 0,
     allUsers: [],
     allOrders: [],
     filterOrders: [],
@@ -131,6 +133,11 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 allBooks: action.payload,
                 copyAllBooks: action.payload,
+            };
+        case SET_TOTAL_BOOKS:
+            return {
+                ...state,
+                totalBooks: action.payload,
             };
         case GET_NAME_BOOKS:
             return {

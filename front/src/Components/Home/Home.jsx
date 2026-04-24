@@ -54,14 +54,12 @@ import { FaFilter } from "react-icons/fa";
 export default function Home() {
     const { t } = useTranslation() 
     const dispatch = useDispatch();
-    const { status, actualPage, allBooks, section, uid, favorites } =
+    const { status, actualPage, allBooks, section, uid, favorites, totalBooks } =
         useSelector((state) => state);
     const isAuthenticated = useMemo(() => status === "authenticated", [status]);
   // const location = useLocation();
   // const search = location.state ? location.state.search : null;
   const itemsPorPagina = 12;
-  const offset = actualPage * itemsPorPagina;
-  const limit = offset + itemsPorPagina;
 
   //Labels con los filtros seleccionados
   const [author, setAuthor] = useState({});
@@ -137,15 +135,21 @@ export default function Home() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Cargar libros cuando cambia la página
+  useEffect(() => {
+    if (section === "home" && !category.id && !author.id) {
+      dispatch(getAllBooks(actualPage, 12));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [actualPage]);
+
   // useEffect(() => {
 
   // }, [actualPage])
 
   // console.log(allBooks, actualPage);
 
-  const currentBooks = Array.isArray(allBooks)
-  ? allBooks.slice(offset, limit)
-  : [];
+  const currentBooks = Array.isArray(allBooks) ? allBooks : [];
 
   const authorsFilter = (value) => {
     setAuthor(value);
@@ -361,7 +365,7 @@ export default function Home() {
             </>
             <div className={styles.paginas}>
               <Paginated
-                totalItems={allBooks.length}
+                totalItems={totalBooks}
                 itemsPorPagina={itemsPorPagina}
               />
             </div>
