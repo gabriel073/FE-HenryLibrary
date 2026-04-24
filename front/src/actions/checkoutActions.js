@@ -7,10 +7,11 @@ export const CLEAR_PAYMENT = "CLEAR_PAYMENT";
 export const SET_DELIVERY_ADDRESS="SET_DELIVERY_ADDRESS"
 export const CLEAR_DELIVERY_ADDRESS="CLEAR_DELIVERY_ADDRESS"
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
-export function setOrder(order) {
-  console.log("estoy en la action setOrder: ", order)
+
+axios.defaults.baseURL = "http://localhost:3001";
+
+export function setOrder(order) { 
   return {
     type: SET_ORDER,
     payload: order

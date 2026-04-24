@@ -8,10 +8,11 @@ import styles from "./Recomendados.module.css";
 function Recomendados() {
   // console.log(recomendados2)
   const  { t } = useTranslation()
-  const allBooks  = useSelector( (state) => state.copyAllBooks );
+const allBooks = useSelector((state) => state.allBooks);
 
-  const recomendados = allBooks.slice(0,5)
-
+const recomendados = Array.isArray(allBooks)
+  ? allBooks.slice(0, 5)
+  : [];
   return (
 
     <div>

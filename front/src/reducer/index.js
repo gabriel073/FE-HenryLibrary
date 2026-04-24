@@ -126,12 +126,12 @@ const initialState = {
 function rootReducer(state = initialState, action) {
     switch (action.type) {
         case GET_ALL_BOOKS:
+           
             return {
                 ...state,
                 allBooks: action.payload,
                 copyAllBooks: action.payload,
             };
-
         case GET_NAME_BOOKS:
             return {
                 ...state,

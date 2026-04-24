@@ -25,7 +25,7 @@ export const signInWithGoogle = async () => {
         };
     } catch (error) {
         // const errorCode = error.code;
-        const errorMessage = error.message;
+        const errorMessage = error?.message;
 
         return {
             ok: false,
@@ -58,7 +58,7 @@ export const registerUserWithEmailPassword = async ({
         };
     } catch (error) {
         console.log(error);
-        return { ok: false, errorMessage: error.message };
+        return { ok: false, errorMessage: error?.message };
     }
 };
 
@@ -78,7 +78,7 @@ export const loginWithEmailPassword = async ({ email, password }) => {
             displayName,
         };
     } catch (error) {
-        return { ok: false, errorMessage: error.message };
+        return { ok: false, errorMessage: error?.message };
     }
 };
 
@@ -94,6 +94,6 @@ export const resetPasswordEmail = async ({ email }) => {
             ok: true,
         };
     } catch (error) {
-        return { ok: false, errorMessage: error.message };
+        return { ok: false, errorMessage: error?.message };
     }
 };

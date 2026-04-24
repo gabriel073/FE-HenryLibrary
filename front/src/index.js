@@ -6,14 +6,14 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { ChakraProvider } from "@chakra-ui/react";
 import store from "./store";
-import dotenv from "dotenv";
+
 import axios from "axios";
 import { BrowserRouter } from "react-router-dom";
 import './i18n'
-dotenv.config();
 
-axios.defaults.baseURL = process.env.REACT_APP_API || "http://localhost:3001";
 
+
+axios.defaults.baseURL = "http://localhost:3001";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

@@ -49,7 +49,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FaFilter } from "react-icons/fa";
-// import { MdClose } from "react-icons/md";
+
 
 export default function Home() {
     const { t } = useTranslation() 
@@ -143,7 +143,9 @@ export default function Home() {
 
   // console.log(allBooks, actualPage);
 
-  const currentBooks = allBooks.length > 0 && allBooks.slice(offset, limit);
+  const currentBooks = Array.isArray(allBooks)
+  ? allBooks.slice(offset, limit)
+  : [];
 
   const authorsFilter = (value) => {
     setAuthor(value);
@@ -391,7 +393,7 @@ export default function Home() {
             </div>
           </div>
         </>
-      ) : allBooks.message ? (
+      ) : allBooks?.message ? (
         <>
           <div className={styles.banner}>
             <img src={banner} alt="banner" />
@@ -561,7 +563,7 @@ export default function Home() {
             </div> */}
 
             <div className={styles.ErrorSearch}>
-              <h3 className={styles.errorH3}>{allBooks.message === 'no cat' ? t("sinLibrosCat") : allBooks.message}</h3>
+              <h3 className={styles.errorH3}>{allBooks?.message === 'no cat' ? t("sinLibrosCat") : allBooks.message}</h3>
             </div>
           </div>
         </>
