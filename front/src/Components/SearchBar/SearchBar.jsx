@@ -97,24 +97,9 @@ export default function SearchBar() {
 
         <Box
           fontFamily="Quicksand"
-          position="absolute"
-          zIndex={1}
-          bottom={-6}
-          top={-10}
+          position="relative"
           width="100%"
         >
-          <Box
-            sx={{
-              rounded: "lg",
-              overflow: "hidden",
-              bg: "transparent",
-              shadow: "lg",
-              maxW: "600px",
-              width: "100%",
-              mt: "1rem",
-              mx: "auto",
-            }}
-          >
             <Flex pos="relative" align="strech">
               <chakra.input
                 type=""
@@ -124,10 +109,11 @@ export default function SearchBar() {
                 maxLength={64}
                 sx={{
                   w: "100%",
-                  h: "48px",
-                  pl: "68px",
+                  h: "44px",
+                  pl: "44px",
                   fontWeight: "bold",
                   outline: 0,
+                  borderRadius: "md",
                 }}
                 placeholder={t("buscar")}
                 _placeholder={{ color: "#01A86C", opacity: 0.6 }}
@@ -136,13 +122,13 @@ export default function SearchBar() {
                 className={styles.input}
               />
 
-              <Center pos="absolute" left={7} bottom={-2} h="68px">
-                <FiSearch color="#01A86C" boxsize="20px" />
+              <Center pos="absolute" left={3} h="44px">
+                <FiSearch color="#01A86C" boxsize="18px" />
               </Center>
             </Flex>
 
             {title && (
-              <Box maxH="70vh" p="0" overflowY="auto" bgColor="white">
+              <Box position="absolute" top="100%" left={0} right={0} zIndex={100} bg="white" borderRadius="md" shadow="lg" mt={2}>
                 <Box px={4}>
                   <Box borderTopWidth="1px" pt={2} pb={4}>
                     <SearchResults
@@ -153,7 +139,6 @@ export default function SearchBar() {
                 </Box>
               </Box>
             )}
-          </Box>
         </Box>
       </form>
     </>

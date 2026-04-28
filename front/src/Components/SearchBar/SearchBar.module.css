@@ -1,24 +1,96 @@
+/* ============================================
+   SEARCH BAR - Modern Responsive Design
+   ============================================ */
 
-body{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+:root {
+  --primary-color: #01A86C;
+  --primary-dark: #018f56;
+  --secondary-color: #2D3748;
+  --text-muted: #718096;
+  --bg-card: #FFFFFF;
+  --bg-light: #F7FAFC;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --transition: all 0.3s ease;
 }
 
-
-.input{
-    background-color: var(--bg);
-    border: 3px solid var(--linkSearchBar);
-    color: var(--text) !important;
+* {
+  box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
 
-@media screen and (max-width: 844px) {
+/* ============================================
+   INPUT STYLES
+   ============================================ */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-card);
+  border: 2px solid var(--primary-color);
+  border-radius: var(--radius-md);
+  color: var(--secondary-color);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  outline: none;
+}
 
-    .input{
-        background-color: var(--bg);
-        border: 3px solid var(--linkSearchBar);
-        color: var(--text) !important;
-    }
+.input:focus {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 0 3px rgba(1, 168, 108, 0.15);
+}
 
+.input::placeholder {
+  color: var(--text-muted);
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+/* Large Desktop */
+@media (max-width: 1400px) {
+  .input {
+    padding: 0.65rem 0.9rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Desktop */
+@media (max-width: 1200px) {
+  .input {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .input {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.8rem;
+    border-width: 2px;
+  }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .input {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.75rem;
+    border-radius: var(--radius-sm);
+  }
 }

@@ -1,272 +1,328 @@
+/* ============================================
+   NAVBAR - Modern Responsive Design
+   ============================================ */
+
+:root {
+  --primary-color: #01A86C;
+  --primary-dark: #018f56;
+  --primary-light: #e8f5f0;
+  --secondary-color: #2D3748;
+  --text-muted: #718096;
+  --text-light: #A0AEC0;
+  --bg-card: #FFFFFF;
+  --bg-light: #F7FAFC;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.12);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
+/* ============================================
+   MAIN CONTAINER
+   ============================================ */
 .container {
-    display: flex;
-    align-items: center;
-    margin-top: 1rem;
-    width: 90%;
-    margin-left: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background: var(--bg-card);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
+/* ============================================
+   LOGO / TITLE
+   ============================================ */
 .titulo {
-    display: flex;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .h1 {
-    font-family: Quicksand;
-    font-weight: bolder;
-    font-size: 40px;
-    color: #ABABAB;
-    padding-left: 3rem;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--text-light);
+  letter-spacing: -0.5px;
 }
 
 .h1_1 {
-    font-family: Quicksand;
-    font-weight: bolder;
-    font-size: 40px;
-    color: #01A86C;
-    margin-right: 7rem;
+  font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: var(--primary-color);
+  letter-spacing: -0.5px;
 }
 
+/* ============================================
+   SEARCH BAR
+   ============================================ */
 .search {
-    margin-right: 6rem;
-    width: 30%;
-    position: relative;
-    /* font-family: Quicksand; */
+  flex: 1;
+  min-width: 150px;
+  max-width: 450px;
+  margin: 0 1.5rem;
+  position: relative;
 }
 
+/* ============================================
+   USER INFO
+   ============================================ */
 .user {
-    width: 15%;
-    margin-right: 1rem;
-    /* font-family: Quicksand; */
-    font-weight: bolder;
-    font-size: 15px;
-    color: #01A86C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
 }
 
 .notUser {
-    width: 15%;
-    margin-right: 1rem;
-    visibility: hidden
+  width: 80px;
+  visibility: hidden;
 }
 
+/* ============================================
+   ICONS SECTION
+   ============================================ */
 .iconos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin-right: 1rem;
-    width: 15%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .icono {
-    width: 2rem;
-    color: var(--text);
+  width: 24px;
+  height: 24px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
+.icono:hover {
+  color: var(--primary-color);
+  transform: scale(1.1);
+}
 
 .iconoCuenta {
-    width: 2rem;
-    color: var(--text);
+  width: 24px;
+  height: 24px;
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
+.iconoCuenta:hover {
+  color: var(--primary-color);
+}
+
+/* ============================================
+   FAVORITES
+   ============================================ */
 .favoritos {
-    display: flex;
-    width: 3rem;
-    height: 3rem;
-    margin-right: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  position: relative;
 }
-
 
 .iconoFav {
-    visibility: visible;
-    color: #01A86C;
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  animation: pulse 2s infinite;
 }
 
 .iconoNoFav {
-    visibility: hidden;
-    cursor: none;
+  visibility: hidden;
 }
 
+/* ============================================
+   CART BADGE
+   ============================================ */
 .cantidad {
-    width: 1rem;
-    height: 1rem;
-    color: white;
-    font-weight: bolder;
-    text-align: center;
-    font-size: 10px;
-    background-color: #076744;
-    border: 1px solid #076744;
-    border-radius: 300px
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  font-size: 0.7rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 
+/* ============================================
+   LANGUAGE FLAGS
+   ============================================ */
 .banderas {
-    display: flex;
-
+  display: flex;
+  gap: 0.5rem;
 }
 
 .bandera {
-    margin-left: 0.5rem;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: var(--transition);
+  border-radius: 4px;
 }
 
-
-
-
-
-/* ####### RESPONSIVE ######## */
-
-@media screen and (max-width: 1100px) {
-
-    .container {
-        width: 95%;
-        margin-left: 1.5rem;
-    }
-
-    .h1 {
-        font-size: 32px;
-    }
-
-    .h1_1 {
-        font-size: 32px;
-        margin-right: 5rem;
-    }
-
-    .search {
-        margin-right: 3rem;
-    }
-
-    .user {
-        width: 11%;
-        margin-right: 1.5rem;
-        font-size: 10px;
-    }
-
-    .notUser {
-        width: 11%;
-        margin-right: 1.5rem;
-    }
-
-
-    .cantidad {
-        top: 0.8rem;
-        right: 8rem;
-        font-size: 10px;
-    }
-
+.bandera:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
-
-
-@media screen and (max-width: 860px) {
-    .container {
-        width: 95%;
-        margin-left: 0.5rem;
-    }
-
-    .h1 {
-        font-size: 28px;
-    }
-
-    .h1_1 {
-        font-size: 28px;
-        margin-right: 4rem;
-    }
-
-    .search {
-        margin-right: 3rem;
-    }
-
-    .user {
-        width: 11%;
-        margin-right: 1.5rem;
-        font-size: 10px;
-    }
-
-    .notUser {
-        width: 11%;
-        margin-right: 1.5rem;
-    }
-
-
-    .cantidad {
-        top: 0.8rem;
-        right: 8rem;
-        font-size: 10px;
-    }
-
-
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
 }
 
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-@media (max-width: 844px) {
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
 
-    .container {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        margin-left: 1rem;
-    }
+/* Large Desktop - 1200px */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0.75rem 1.5rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  
+  .search {
+   justify-items: center;
+    max-width: 100%;
+  
+  }
+}
 
-    .h1 {
-        font-weight: bolder;
-        font-size: 33px;
-        color: #ABABAB;
-        margin-left: -4rem;
-        margin-top: 4.5rem;
-    }
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
 
-    .h1_1 {
-        font-weight: bolder;
-        font-size: 33px;
-        color: #01A86C;
-        margin-bottom: 1.5rem;
-        margin-top: 4.5rem;
-    }
+    padding: 0.75rem 1.5rem;
 
-    .search {
-        margin-top: 1.5rem;
-        margin-bottom: 3rem;
-        margin-left: 2.8rem;
-        width: 90%;
-        position: relative;
-    }
+  }
+  
+  .h1,
+  .h1_1 {
+    font-size: 1.5rem;
+  }
+  
+  .search {
+  
+    max-width: 100%;
 
-    .user {
-        width: 95%;
-        margin-left: 1.5rem;
-        margin-bottom: 2rem;
-        font-weight: bolder;
-        text-align: center;
-        font-size: 15px;
-        color: #01A86C;
-    }
+   
+  }
+  
+  .user,
+  .notUser {
+    font-size: 0.8rem;
+    max-width: 100px;
+  }
+}
 
-    .notUser {
-        visibility: hidden;
-        width: 95%;
-        margin-left: 1.5rem;
-        margin-bottom: 2rem;
-    }
+/* Mobile Large */
+@media (max-width: 768px) {
+  .container {
+    padding: 0.75rem 1rem;
+  }
+  
+  .h1,
+  .h1_1 {
+    font-size: 1.25rem;
+  }
+  
+  .h1_1 {
+    margin-right: 0.5rem;
+  }
+  
+  .user {
+    display: none;
+  }
+  
+  .notUser {
+    display: none;
+  }
+  
+  .iconos {
+    gap: 0.75rem;
+  }
+  
+  .icono,
+  .iconoCuenta {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .favoritos {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .banderas {
+    display: none;
+  }
+}
 
-    .iconos {
-        position: absolute;
-        top: 1.8rem;
-        width: 60%;
-        display: flex;
-        justify-content: space-around;
-        margin-left: -4rem;
-        margin-bottom: 1.5rem;
-        font-size: 2.5rem !important;
-    }
-
-    .icono {
-        color: var(--text);
-    }
-
-
-
+/* Mobile Small */
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .h1,
+  .h1_1 {
+    font-size: 1.1rem;
+  }
+  
+  .iconos {
+    gap: 0.5rem;
+  }
+  
+  .cantidad {
+    min-width: 16px;
+    height: 16px;
+    font-size: 0.6rem;
+  }
 }
